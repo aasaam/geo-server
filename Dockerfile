@@ -24,4 +24,4 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
 
 WORKDIR /
 
-CMD ["waitress-serve --listen 0.0.0.0:48080 config:application"]
+CMD ["waitress-serve", "--listen", "0.0.0.0:48080", "config:application"]
