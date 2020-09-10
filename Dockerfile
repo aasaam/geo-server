@@ -24,4 +24,8 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
 
 WORKDIR /
 
-CMD ["waitress-serve", "--listen", "0.0.0.0:48080", "config:application"]
+ENV BIND_ADDRESS 127.0.0.1:48080
+ENV HTTP_PROXY ""
+ENV HTTPS_PROXY ""
+
+CMD ["waitress-serve", "--listen", "$BIND_ADDRESS", "config:application"]

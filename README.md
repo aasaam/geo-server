@@ -12,6 +12,5 @@
 This container is useful for proxy map services and use [mapproxy](https://mapproxy.org).
 
 ```bash
-docker pull aasaam/geo-server
-# or docker pull quay.io/aasaam/geo-server
+docker-compose up -d
 ```

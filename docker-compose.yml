@@ -6,8 +6,11 @@ services:
     image: aasaam/geo-server
     volumes:
       - cache-storage:/cache
-    ports:
-      - 48080:48080
+    network_mode: "host"
+    environment:
+      BIND_ADDRESS: 127.0.0.1:48080
+      HTTP_PROXY: ''
+      HTTPS_PROXY: ''
     restart: unless-stopped
 
 volumes:
