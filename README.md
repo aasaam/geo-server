@@ -9,7 +9,7 @@
 [![open-pull-requests](https://flat.badgen.net/github/open-prs/aasaam/geo-server)](https://github.com/aasaam/geo-server/pulls)
 [![license](https://flat.badgen.net/github/license/aasaam/geo-server)](./LICENSE)
 
-[geo-server](http://geoserver.org)] is offline geo map.
+[geo-server](http://geoserver.org) is offline geo map.
 
 This container is useful for offline map services.
 
