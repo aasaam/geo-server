@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  geo-server:
+    container_name: geo-server
+    image: aasaam/geo-server
+    ports:
+      - 8080:8080
+    restart: unless-stopped
