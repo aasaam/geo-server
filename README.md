@@ -9,9 +9,7 @@
 [![open-pull-requests](https://flat.badgen.net/github/open-prs/aasaam/geo-server)](https://github.com/aasaam/geo-server/pulls)
 [![license](https://flat.badgen.net/github/license/aasaam/geo-server)](./LICENSE)
 
-[geo-server](http://geoserver.org) is offline geo map.
-
-This container is useful for offline map services.
+This container is useful for proxy map services and use [mapproxy](https://mapproxy.org).
 
 ```bash
 docker pull aasaam/geo-server
@@ -26,6 +24,6 @@ services:
     container_name: geo-server
     image: aasaam/geo-server
     ports:
-      - 8080:8080
+      - 48080:48080
     restart: unless-stopped
 ```

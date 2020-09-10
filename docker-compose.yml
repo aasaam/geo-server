@@ -5,5 +5,5 @@ services:
     container_name: geo-server
     image: aasaam/geo-server
     ports:
-      - 8080:8080
+      - 48080:48080
     restart: unless-stopped

@@ -1,0 +1,51 @@
+services:
+  demo:
+  wms:
+    image_formats: ["image/png"]
+    md:
+      title: aasaam geo server
+      abstract: aasaam geo server proxy
+      online_resource: https://aasaam.com/
+      contact:
+        person: Muhammad Hussein Fattahizadeh
+        position: Founder, CTO and Lead Developer
+        organization: aasaam software development group
+        address: 3rd Floor, No 14, Noori(Kambiz) St, West Zartosht St, District 6
+        city: Tehran
+        postcode: "1415653364"
+        country: Iran
+        email: info@aasaam.com
+      access_constraints:
+        This service is intended for private and evaluation use only.
+        The data is licensed as Creative Commons Attribution-Share Alike 2.0
+        (http://creativecommons.org/licenses/by-sa/2.0/)
+      fees: "None"
+
+layers:
+  - name: osm
+    title: Open Street Map
+    sources: [osm_cache]
+
+caches:
+  osm_cache:
+    sources: [osm_tiles]
+    format: image/png
+
+sources:
+  osm_tiles:
+    type: tile
+    url: http://c.tile.openstreetmap.org/%(tms_path)s.%(format)s
+    grid: osm_grid
+
+grids:
+  osm_grid:
+    origin: nw
+
+globals:
+  cache:
+    base_dir: "/cache"
+    lock_dir: "/cache/locks"
+
+  image:
+    resampling_method: bilinear
+    jpeg_quality: 85
