@@ -15,15 +15,3 @@ This container is useful for proxy map services and use [mapproxy](https://mappr
 docker pull aasaam/geo-server
 # or docker pull quay.io/aasaam/geo-server
 ```
-
-```yml
-version: '3'
-
-services:
-  geo-server:
-    container_name: geo-server
-    image: aasaam/geo-server
-    ports:
-      - 48080:48080
-    restart: unless-stopped
-```

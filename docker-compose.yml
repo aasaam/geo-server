@@ -4,6 +4,11 @@ services:
   geo-server:
     container_name: geo-server
     image: aasaam/geo-server
+    volumes:
+      - cache-storage:/cache
     ports:
       - 48080:48080
     restart: unless-stopped
+
+volumes:
+  cache-storage:
