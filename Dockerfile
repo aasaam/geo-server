@@ -8,6 +8,7 @@ LABEL org.label-schema.name="geo-server" \
 
 ADD config.py /config.py
 ADD mapproxy.yaml /mapproxy.yaml
+ADD entrypoint.sh /entrypoint.sh
 
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   apt update \
@@ -20,12 +21,13 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
   && apt-get autoremove -y \
   && apt-get clean \
   && cd / \
+  && chmod +x /entrypoint.sh \
   && rm -rf /root/.cache && rm -r /var/lib/apt/lists/* && rm -rf /tmp && mkdir /tmp && chmod 777 /tmp && truncate -s 0 /var/log/*.log
 
 WORKDIR /
 
-ENV BIND_ADDRESS 127.0.0.1:48080
+ENV LISTEN_HOST 127.0.0.1
+ENV LISTEN_PORT 48080
 ENV HTTP_PROXY ""
-ENV HTTPS_PROXY ""
 
-CMD ["waitress-serve", "--listen", "$BIND_ADDRESS", "config:application"]
+ENTRYPOINT [ "/entrypoint.sh" ]

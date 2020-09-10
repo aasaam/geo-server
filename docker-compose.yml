@@ -8,9 +8,10 @@ services:
       - cache-storage:/cache
     network_mode: "host"
     environment:
-      BIND_ADDRESS: 127.0.0.1:48080
+      LISTEN_HOST: 127.0.0.1
+      LISTEN_PORT: 48080
       HTTP_PROXY: ''
-      HTTPS_PROXY: ''
+      # HTTP_PROXY: 'http://127.0.0.1:8080'
     restart: unless-stopped
 
 volumes:
