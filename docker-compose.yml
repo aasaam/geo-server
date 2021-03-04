@@ -1,3 +1,4 @@
+# Copyright (c) 2021 aasaam software development group
 version: '3'
 
 services:
@@ -8,10 +9,9 @@ services:
       - cache-storage:/cache
     network_mode: "host"
     environment:
-      LISTEN_HOST: 127.0.0.1
-      LISTEN_PORT: 48080
-      HTTP_PROXY: ''
-      # HTTP_PROXY: 'http://127.0.0.1:8080'
+      LISTEN_HOST: ${LISTEN_HOST:127.0.0.1}
+      LISTEN_PORT: ${LISTEN_PORT:9560}
+      HTTP_PROXY: ${HTTP_PROXY}
     restart: unless-stopped
 
 volumes:

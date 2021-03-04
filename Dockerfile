@@ -1,3 +1,4 @@
+# Copyright (c) 2021 aasaam software development group
 FROM python:buster
 
 LABEL org.label-schema.name="geo-server" \
