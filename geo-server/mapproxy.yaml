@@ -8,11 +8,11 @@ services:
       online_resource: https://aasaam.com/
       contact:
         person: Muhammad Hussein Fattahizadeh
-        position: Founder, CTO and Lead Developer
+        position: Co-founder, CTO and Developer
         organization: aasaam software development group
-        address: 3rd Floor, No 14, Noori(Kambiz) St, West Zartosht St, District 6
+        address: No 3, West 2nd St, Mordad St, District 6
         city: Tehran
-        postcode: "1415653364"
+        postcode: "1413954311"
         country: Iran
         email: info@aasaam.com
       access_constraints:
@@ -34,7 +34,7 @@ caches:
 sources:
   osm_tiles:
     type: tile
-    url: http://c.tile.openstreetmap.org/%(tms_path)s.%(format)s
+    url: https://tile.openstreetmap.org/%(tms_path)s.%(format)s
     grid: osm_grid
 
 grids:
@@ -48,4 +48,6 @@ globals:
 
   image:
     resampling_method: bilinear
+    encoding_options:
+      quantizer: fastoctree
     jpeg_quality: 85

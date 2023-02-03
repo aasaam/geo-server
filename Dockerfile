@@ -1,34 +1,24 @@
-# Copyright (c) 2021 aasaam software development group
-FROM python:buster
+FROM python:3.9-slim
 
-LABEL org.label-schema.name="geo-server" \
-      org.label-schema.description="geo-server" \
-      org.label-schema.url=https://github.com/aasaam/geo-server \
-      org.label-schema.vendor="aasaam" \
-      maintainer="Muhammad Hussein Fattahizadeh <m@mhf.ir>"
-
-ADD config.py /config.py
-ADD mapproxy.yaml /mapproxy.yaml
-ADD entrypoint.sh /entrypoint.sh
+ADD geo-server/ /
 
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   apt update \
   && apt upgrade -y \
-  && apt install libproj13 libgeos-dev libgdal-dev --no-install-recommends -y \
+  && apt install libproj13 libgeos-dev libgdal-dev ca-certificates --no-install-recommends -y \
   && cd /tmp \
   && python3 -m pip install --no-cache-dir --upgrade pip \
   && python3 -m pip install --no-cache-dir --upgrade Pillow PyYAML lxml Shapely waitress \
-  && python3 -m pip install --no-cache-dir --upgrade https://github.com/mapproxy/mapproxy/tarball/master \
+  && python3 -m pip install --no-cache-dir --upgrade MapProxy \
   && apt-get autoremove -y \
   && apt-get clean \
   && cd / \
-  && chmod +x /entrypoint.sh \
+  && chmod +x /geo-server/entrypoint.sh \
   && rm -rf /root/.cache && rm -r /var/lib/apt/lists/* && rm -rf /tmp && mkdir /tmp && chmod 777 /tmp && truncate -s 0 /var/log/*.log
 
 WORKDIR /
 
 ENV LISTEN_HOST 127.0.0.1
 ENV LISTEN_PORT 48080
-ENV HTTP_PROXY ""
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/geo-server/entrypoint.sh" ]
