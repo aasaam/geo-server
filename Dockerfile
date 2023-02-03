@@ -5,11 +5,12 @@ ADD geo-server/ /
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   apt update \
   && apt upgrade -y \
-  && apt install libproj13 libgeos-dev libgdal-dev ca-certificates --no-install-recommends -y \
+  && apt install build-essential ca-certificates libfreetype6-dev libgdal-dev libgeos-dev libjpeg-dev zlib1g-dev --no-install-recommends -y \
   && cd /tmp \
   && python3 -m pip install --no-cache-dir --upgrade pip \
   && python3 -m pip install --no-cache-dir --upgrade Pillow PyYAML lxml Shapely waitress \
   && python3 -m pip install --no-cache-dir --upgrade MapProxy \
+  && apt remove build-essential  -y \
   && apt-get autoremove -y \
   && apt-get clean \
   && cd / \
