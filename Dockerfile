@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-ADD geo-server /
+ADD geo-server /geo-server
 
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   apt update \
