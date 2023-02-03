@@ -48,6 +48,4 @@ globals:
 
   image:
     resampling_method: bilinear
-    encoding_options:
-      quantizer: fastoctree
     jpeg_quality: 85
