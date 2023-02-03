@@ -1,9 +1,11 @@
 FROM python:3.9-slim
 
-ADD geo-server/ /
+ADD geo-server /
 
 RUN export DEBIAN_FRONTEND=noninteractive ; \
   apt update \
+  && ls / \
+  && ls /geo-server \
   && apt upgrade -y \
   && apt install build-essential ca-certificates libfreetype6-dev libgdal-dev libgeos-dev libjpeg-dev zlib1g-dev --no-install-recommends -y \
   && cd /tmp \
