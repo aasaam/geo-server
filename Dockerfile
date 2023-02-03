@@ -10,7 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
   && apt install build-essential ca-certificates libfreetype6-dev libgdal-dev libgeos-dev libjpeg-dev zlib1g-dev --no-install-recommends -y \
   && cd /tmp \
   && python3 -m pip install --no-cache-dir --upgrade pip \
-  && python3 -m pip install --no-cache-dir --upgrade Pillow PyYAML six lxml Shapely waitress \
+  && python3 -m pip install --no-cache-dir --upgrade Pillow PyYAML pyproj six lxml Shapely waitress \
   && python3 -m pip install --no-cache-dir --upgrade MapProxy \
   && apt remove build-essential  -y \
   && apt-get autoremove -y \
